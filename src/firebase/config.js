@@ -17,3 +17,5 @@ export function getFirebase() {
 }
 
 export const database = firebase.firestore();
+
+

@@ -1,6 +1,6 @@
 import React from "react"
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom"
-// import "./App.css"
+import "./App.css"
 import Nav from "./components/Nav"
 import ItemListContainer from "./components/ItemListContainer"
 import ItemDetailContainer from "./components/ItemDetailContainer"
@@ -16,10 +16,10 @@ function App() {
           <Route exact path="/">
             <ItemListContainer />
           </Route>
-          <Route path="/category/:catId">
+          <Route path="/categoria/:catId">
             <ItemListContainer />
           </Route>
-          <Route path="/item/:id">
+          <Route path="/producto/:id">
             <ItemDetailContainer />
           </Route>
           <Route path="/cart">

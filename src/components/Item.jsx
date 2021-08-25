@@ -4,10 +4,10 @@ import { Link } from "react-router-dom"
 const Item = ({ item }) => {
   return (
     
-      <div style={{ margin: "10px 5px" }}>
+      <div>
         <img src={item.img} alt={item.nombre} />
-        <div className="text">
-        <Link to={`/item/${item.id}`}>
+        <div>
+        <Link to={`/producto/${item.id}`}>
           <h5>
             {item.nombre}
           </h5>

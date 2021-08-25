@@ -1,36 +1,33 @@
-import React from 'react'
-import { NavLink } from "react-router-dom"
+import React from "react";
+import { Link } from "react-router-dom"
+import CartIcon from "./CartIcon"
+
 
 const Nav = () => {
+
     return (
         <div>
            <nav className="navbar">
             <div className="logo">
-                <NavLink className="logo-text" exact to="/">
+                <Link className="logo-text" exact to="/">
                 Pizzeria
-                </NavLink>
+                </Link>
             </div>
             <div className="item-list">
                 <ul className="menu">
                 <li>
-                    <NavLink className="item" to="/category/pizza">
-                    Pizzas
-                    </NavLink>
+                    <Link to="/categoria/pizza"> Pizzas </Link>
                 </li>
                 <li>
-                    <NavLink className="item" to="/category/bebidas">
-                    Bebidas
-                    </NavLink>
+                    <Link to="/categoria/bebidas"> Bebidas </Link>
                 </li>
                 <li>
-                    <NavLink className="item" to="/category/postre">
-                    Postres
-                    </NavLink>
+                    <Link to="/categoria/postre"> Postres </Link>
                 </li>
                 </ul>
             </div>
-            <div className="carrito">
-                {/* <CartIcon /> */}
+            <div>
+                <CartIcon />
             </div>
             </nav>
         </div>
@@ -38,3 +35,4 @@ const Nav = () => {
 }
 
 export default Nav
+

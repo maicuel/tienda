@@ -32,9 +32,11 @@
 
 import React, { useState, useEffect } from 'react';
 
-import { database } from "../firebase/config"
+// import { getFirestore } from '../../firebase/index';
 import { useParams } from 'react-router-dom';
 import ItemDetail from './ItemDetail';
+
+import { database } from "../firebase/config"
 
 
 const ItemDetailContainer = ({ stamps }) => {
@@ -46,9 +48,12 @@ const ItemDetailContainer = ({ stamps }) => {
 
   useEffect(() => {
     // const database = getFirestore();
-    const stampDatabase = database.collection('productos');
-    const stamp = stampDatabase.doc(itemId.id);
-    stamp
+
+      const dbProducts = database.collection("productos")
+
+    // const database = database.collection('productos');
+    const item = dbProducts.doc(itemId.id);
+    item
       .get()
       .then((doc) => {
         if (!doc.exists) {
@@ -70,7 +75,7 @@ const ItemDetailContainer = ({ stamps }) => {
     <div>
       <ItemDetail
         loading={loading}
-        stamp={selectedStamp}
+        item={selectedStamp}
         handleButton={handleButton}
         buttonVisibility={buttonVisibility}
         count={count}

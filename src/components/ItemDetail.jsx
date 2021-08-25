@@ -1,28 +1,25 @@
-// import React, { useState, useContext } from "react"
-// import { CartContext } from "../context/CartContext"
-// import { Link } from "react-router-dom"
-// import Counter from "./Counter"
+// import React, { useState, useContext } from "react";
+// import { CartContext } from "../context/CartContext";
+// import { Link } from "react-router-dom";
+// import Counter from "./Counter";
 
 // function ItemDetail({ item }) {
-//   const { addToCart, inCart, deleteItem } = useContext(CartContext)
+//   const { addItem, removeItem, inCart} = useContext(CartContext);
 
-//   const initial = 1
-//   const [count, setCount] = useState(initial)
+//   // const initial = 1;
+//   const [count, setCount] = useState();
 
-
-
-
-//   const sendItemToCart = () => {
-//     addToCart({ ...item, cantidad: count })
-//   }
+//   const addToCart = () => {
+//     addItem({ ...item, cantidad: count });
+//   };
 
 //   return (
 //     <div>
 //       <img src={item.img} alt={item.nombre} />
 //       <div>
-//         <h2>
+//         <h5>
 //           {item.nombre}
-//         </h2>
+//         </h5>
 //         <small>stock: {item.stock}</small>
 //         <p>
 //                 Precio: {item.valor}
@@ -37,97 +34,87 @@
 //           ? <div>
 //               <Counter
 //                 stock={item.stock}
-//                 initial={initial}
+//                 // initial={initial}
 //                 count={count}
 //                 setCount={setCount}
 //               />
-                
-//               <button
-//                 onClick={() => {
-//                   sendItemToCart()
-//                 }}
-//               >
+
+//               <button onClick={() =>  addToCart() }>
 //                 Agregar al Carrito
 //               </button>
-
-              
 //             </div>
 //           : <div>
-//               <p>
-//                 Agregado(s) {count} producto/s al Carrito
-//               </p>
+//               {/* <p>
+//                 Tienes {count} {item.nombre} en el Carrito
+//               </p> */}
 //               <Link to="/cart">
 //                 <button>Terminar Compra</button>
 //               </Link>
-//               <button
+//               {/* <button
 //                 onClick={() => {
-//                   deleteItem(item)
+//                   removeItem(item);
 //                 }}
 //               >
 //                 Modificar Compra
-//               </button>
+//               </button> */}
 //               <Link to="/">
 //                 <button>Seguir comprando</button>
 //               </Link>
 //             </div>}
 //       </div>
 //     </div>
-//   )
+//   );
 // }
 
-// export default ItemDetail
+// export default ItemDetail;
+
 
 
 import React, { useContext } from 'react';
 import { Link } from 'react-router-dom';
-import { CartContext } from "../context/CartContext"
-import Counter from "./Counter"
-
+import { CartContext } from '../context/CartContext';
+import Counter from './Counter';
 
 
 const ItemDetail = ({
   loading,
-  stamp,
-//   handleButton,
-  buttonVisibility,
+  item,
   count,
   setCount,
 }) => {
-  const context = useContext(CartContext);
+  const  { addItem } = useContext(CartContext);
+
   return (
     <>
       {loading ? (
-        <div className="loading loading-lg"></div>
-      ) : stamp === 404 ? (
+        <div>cargando</div>
+      ) : item === 404 ? (
         <div>
           <h1>404</h1>
           <h3>Producto no encontrado.</h3>
           <Link to="/">
-            <button className="btn btn-primary">Volver</button>
+            <button>Volver</button>
           </Link>
         </div>
       ) : (
         <div>
           <div>
-            <img src={stamp.img} alt={stamp.nombre} />
-            
+            <img src={item.img} alt={item.nombre} />
           </div>
           <div>
-            <h2>{stamp.title}</h2>
-            <b>Precio: ${stamp.valor}</b>
-            <i>Stock: {stamp.stock}</i>
+            <h2>{item.nombre}</h2>
+            <b>Precio: ${item.valor}</b>
+            <i>Stock: {item.stock}</i>
             <Counter
               initial={0}
-              stock={stamp.stock}
-            //   handleButton={handleButton}
+              stock={item.stock}
               count={count}
               setCount={setCount}
             />
 
             <Link
               to="/cart"
-              className={`btn btn-primary ${!buttonVisibility && 'disabled'}`}
-              onClick={() => context.addItem(stamp, count)}
+              onClick={() =>  addItem({ ...item, cantidad: count })}
             >
               Agregar al Carrito
             </Link>
