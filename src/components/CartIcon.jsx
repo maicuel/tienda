@@ -1,7 +1,8 @@
 import React, { useContext } from 'react';
 import { Link } from 'react-router-dom';
 import { CartContext } from '../context/CartContext';
-
+import { faShoppingCart } from "@fortawesome/free-solid-svg-icons"
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 
 
 const CartIcon = () => {
@@ -10,7 +11,7 @@ const CartIcon = () => {
   return (
     <div>
       <Link to="/cart">
-        {/* <img src={Cart} alt="Carrito" /> */}
+        <FontAwesomeIcon icon={faShoppingCart} />
         {context.cart.length > 0 && (
           <span>{context.cart.length}</span>
         )}

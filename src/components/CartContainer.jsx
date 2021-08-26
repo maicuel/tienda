@@ -7,9 +7,9 @@ const CartContainer = () => {
   const context = useContext(CartContext);
 
   return (
-    <table>
+    
       <Cart context={context} />
-    </table>
+
   );
 };
 

@@ -86,9 +86,7 @@ const ItemDetail = ({
 
   return (
     <>
-      {loading ? (
-        <div>cargando</div>
-      ) : item === 404 ? (
+      { item === 404 ? (
         <div>
           <h1>404</h1>
           <h3>Producto no encontrado.</h3>
@@ -104,9 +102,11 @@ const ItemDetail = ({
           <div>
             <h2>{item.nombre}</h2>
             <b>Precio: ${item.valor}</b>
-            <i>Stock: {item.stock}</i>
+            <p>Stock: {item.stock}</p>
+            <p>Desc: {item.descripcion}</p>
+
             <Counter
-              initial={0}
+              initial={1}
               stock={item.stock}
               count={count}
               setCount={setCount}

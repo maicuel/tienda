@@ -1,16 +1,16 @@
 import React, { useEffect, useState } from "react"
 import { useParams } from "react-router-dom"
-// import Loader from "../Loader/Loader"
-import Item from "./Item"
-import { database } from "../firebase/config"
+import './ItemListContainer.scss'
+import Loader from "../Loader/Loader"
+import Item from "../Item/Item"
+import { database } from "../../firebase/config"
 
 
 const ItemListContainer = () => {
 
   const [displayItems, setDisplayItems] = useState([])
-
   const { catId } = useParams()
-
+  
   useEffect(() => {
     setDisplayItems([])
     const dbProducts = database.collection("productos")
@@ -37,11 +37,15 @@ const ItemListContainer = () => {
     }
   }, [catId])
   return !displayItems.length
-    ?  <div>cargando</div>
-    // <Loader />
-    : <div>
+    ? 
+    <Loader />
+    : 
+    <div className="container is-fluid">
+      <div className="columns">
         {displayItems.map(item => <Item item={item} key={item.id} />)}
       </div>
+    </div>
+
 }
 
 export default ItemListContainer

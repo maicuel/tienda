@@ -2,6 +2,8 @@ import React, { useContext, useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import { CartContext } from "../context/CartContext";
 import CartItem from "./CartItem";
+import { faTimes } from "@fortawesome/free-solid-svg-icons";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 // import Form from "./Form";
 
 const Cart = () => {
@@ -20,11 +22,6 @@ const Cart = () => {
     [cart]
   );
 
-
-
-
-
-
   return (
     <div>
       {!cart.length
@@ -34,16 +31,27 @@ const Cart = () => {
               <button>Volver</button>
             </Link>
           </div>
-        : <div>
+        : <div className="container">
             <h3>Lista de compras:</h3>
+            <table class="table">
+            <tbody>
             {cart.map(item =>
               <CartItem item={item} key={item.id}  />
             )}
+            </tbody>
+            </table>
             <h5>
               Total : ${total}
               
             </h5>
-            <button onClick={() => clearCart()}>Vaciar Carrito</button>
+
+            <button class="button is-danger is-outlined" onClick={() => clearCart()}>
+            <span>Vaciar Carro</span>
+            <span class="icon is-small">
+              <FontAwesomeIcon icon={faTimes} />
+            </span>
+          </button>
+            {/* <button onClick={() => clearCart()}>Vaciar Carrito</button> */}
             {/* <Form cart={cart} total={total} clearCart={clearCart} /> */}
           </div>}
     </div>

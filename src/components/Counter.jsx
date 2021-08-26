@@ -32,29 +32,24 @@
 
 import React from "react";
 
-function Counter({count, setCount, stock, initial}) {
-
-    console.log('el stock es: ' + stock)
-    //Funcion suma
-    const addCount = () => {
-        if(count<stock) (
-        setCount(count + 1))
-    };
-
-    //funcion resta
-    const substractCount = () => {
-        if(count>initial) (
-        setCount(count - 1))
-    };
+function Counter({count, setCount, initial, stock}) {
 
     
+    const increaseCount = () => {
+      count < stock && setCount(count + 1);
+    };
+  
+    const decreaseCount = () => {
+      count > initial && setCount(count - 1);
+    };
+
 
     return (
         <div>            
             <h4>{count}</h4>
             <div>
-                <button onClick={substractCount}>-</button>
-                <button onClick={addCount}>+</button>
+                <button onClick={decreaseCount}>-</button>
+                <button onClick={increaseCount}>+</button>
             </div>
         </div>
     )
