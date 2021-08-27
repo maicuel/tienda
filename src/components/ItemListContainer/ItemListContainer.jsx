@@ -40,11 +40,11 @@ const ItemListContainer = () => {
     ? 
     <Loader />
     : 
-    <div className="container is-fluid">
-      <div className="columns">
+    <section className="section">
+      <div className="columns is-mobile is-multiline">
         {displayItems.map(item => <Item item={item} key={item.id} />)}
       </div>
-    </div>
+    </section>
 
 }
 

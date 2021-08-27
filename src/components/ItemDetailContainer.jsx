@@ -17,7 +17,6 @@ const ItemDetailContainer = () => {
       .get()
       .then((doc) => {
         if (!doc.exists) {
-          console.log('No existe')
           setSelectedItem(404)
           return
         }
@@ -29,14 +28,14 @@ const ItemDetailContainer = () => {
 
 
   return (
-    <div>
+    <section className="section">
       <ItemDetail
         loading={loading}
         item={selectedItem}
         count={count}
         setCount={setCount}
       />
-    </div>
+    </section>
   )
 }
 

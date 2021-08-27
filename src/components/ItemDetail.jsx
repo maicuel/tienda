@@ -76,16 +76,11 @@ import { CartContext } from '../context/CartContext';
 import Counter from './Counter';
 
 
-const ItemDetail = ({
-  loading,
-  item,
-  count,
-  setCount,
-}) => {
-  const  { addItem } = useContext(CartContext);
 
+const ItemDetail = ({ loading, item, count, setCount }) => {
+  const  { addItem } = useContext(CartContext);
   return (
-    <>
+    <div className="container">
       { item === 404 ? (
         <div>
           <h1>404</h1>
@@ -94,16 +89,22 @@ const ItemDetail = ({
             <button>Volver</button>
           </Link>
         </div>
-      ) : (
-        <div>
-          <div>
-            <img src={item.img} alt={item.nombre} />
+      ) 
+      : 
+      (
+          <div className="columns">
+
+          <div className="column is-one-third">
+            <figure className="image">
+              <img src={item.img} alt={item.nombre} />
+            </figure>
           </div>
-          <div>
-            <h2>{item.nombre}</h2>
-            <b>Precio: ${item.valor}</b>
+
+          <div className="column">
+            <p className="is-size-3 is-uppercasehas-text-weight-bold">{item.nombre}</p>
+            <p className="">Precio: ${item.valor}</p>
             <p>Stock: {item.stock}</p>
-            <p>Desc: {item.descripcion}</p>
+            <p>{item.descripcion}</p>
 
             <Counter
               initial={1}
@@ -112,16 +113,16 @@ const ItemDetail = ({
               setCount={setCount}
             />
 
-            <Link
-              to="/cart"
-              onClick={() =>  addItem({ ...item, cantidad: count })}
-            >
+            <Link to="/cart" onClick={() =>  addItem({ ...item, cantidad: count })} className="button is-primary">
               Agregar al Carrito
             </Link>
+
           </div>
         </div>
       )}
-    </>
+
+
+    </div>
   );
 };
 

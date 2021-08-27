@@ -1,7 +1,7 @@
 import React, { useContext, useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import { CartContext } from "../context/CartContext";
-import CartItem from "./CartItem";
+import CartItem from "./CartItem/CartItem";
 import { faTimes } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 // import Form from "./Form";
@@ -31,26 +31,40 @@ const Cart = () => {
               <button>Volver</button>
             </Link>
           </div>
-        : <div className="container">
+        : <div className="container mt-6">
             <h3>Lista de compras:</h3>
-            <table class="table">
-            <tbody>
-            {cart.map(item =>
-              <CartItem item={item} key={item.id}  />
-            )}
-            </tbody>
-            </table>
-            <h5>
-              Total : ${total}
-              
-            </h5>
 
-            <button class="button is-danger is-outlined" onClick={() => clearCart()}>
-            <span>Vaciar Carro</span>
-            <span class="icon is-small">
-              <FontAwesomeIcon icon={faTimes} />
-            </span>
-          </button>
+            <div className="container">
+
+              {cart.map(item =>
+                <CartItem item={item} key={item.id}  />
+              )}
+
+            </div>
+
+
+            <div class="columns is-mobile">
+              <div class="column is-4 is-offset-8"></div>
+            </div>
+
+
+           <div className="columns mt-6">
+            <div className="column">
+                Total : ${total}
+              </div>
+              <div className="column">
+              <button class="button is-danger is-outlined" onClick={() => clearCart()}>
+                <span>Vaciar Carro</span>
+                <span class="icon is-small">
+                  <FontAwesomeIcon icon={faTimes} />
+                </span>
+              </button>
+              </div>
+           </div>
+
+
+
+
             {/* <button onClick={() => clearCart()}>Vaciar Carrito</button> */}
             {/* <Form cart={cart} total={total} clearCart={clearCart} /> */}
           </div>}

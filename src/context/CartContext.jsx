@@ -53,20 +53,22 @@
 // export default DataProvider;
 
 
-import React, { createContext, useState, useEffect } from "react";
+import React, { createContext, useState, useEffect } from "react"
+import swal from 'sweetalert';
 
-export const CartContext = createContext();
+
+export const CartContext = createContext()
 
 const DataProvider = (props) => {
   
-  const [cart, setCart] = useState([]);
+  const [cart, setCart] = useState([])
 
 
   useEffect(() => {
         if (localStorage.getItem('cart') !== null) {
-          setCart(JSON.parse(localStorage.getItem('cart')));
+          setCart(JSON.parse(localStorage.getItem('cart')))
         }
-      }, []);
+      }, [])
     
   useEffect(() => {
         localStorage.setItem('cart', JSON.stringify(cart));
@@ -77,10 +79,13 @@ const DataProvider = (props) => {
     const addItem = (item) => {
     if (cart.filter((element) => element.id === item.id).length === 0) {
 
-      alert(
-          'Se agrego ' + item.nombre + ' en tu carrito.'
-        )
-        
+      swal( {
+        title: "Muy Bien!",
+        icon: "success",
+        timer: 3000,
+        text: 'Se agrego '  + item.cantidad + ' ' + item.nombre +  ' en tu carrito.',
+      });
+
       setCart([
         ...cart,
         {
@@ -101,10 +106,10 @@ const DataProvider = (props) => {
 
 
 
-  const inCart = (receivedItem) => {
-    const verificar = cart.filter((item) => item.id === receivedItem.id);
-    return verificar.length > 0;
-  };
+  // const inCart = (receivedItem) => {
+  //   const verificar = cart.filter((item) => item.id === receivedItem.id);
+  //   return verificar.length > 0;
+  // };
 
 
 
@@ -118,18 +123,18 @@ const DataProvider = (props) => {
   };
 
 
-  const values = {
-    cart,
-    setCart,
-    addItem,
-    inCart,
-    clearCart,
-    removeItem
-  };
+  // const values = {
+  //   cart,
+  //   setCart,
+  //   addItem,
+  //   inCart,
+  //   clearCart,
+  //   removeItem
+  // };
 
 
   return (
-    <CartContext.Provider value={{ cart, addItem, removeItem, clearCart, inCart }}>
+    <CartContext.Provider value={{ cart, addItem, removeItem, clearCart }}>
         {props.children}
     </CartContext.Provider>
   )

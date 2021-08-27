@@ -8,11 +8,15 @@ import ItemDetailContainer from "./components/ItemDetailContainer"
 import DataProvider from "./context/CartContext"
 import Cart from "./components/Cart"
 import Footer from "./components/Footer/Footer"
+import Hero from "./components/Hero"
 
 function App() {
   return (
+    
     <DataProvider>
       <Router>
+        <Hero />
+      
         <Nav />
         <Switch>
           <Route exact path="/">

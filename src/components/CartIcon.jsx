@@ -9,12 +9,12 @@ const CartIcon = () => {
   const context = useContext(CartContext);
 
   return (
-    <div>
+    <div className="button is-primary is-outlined" >
       <Link to="/cart">
         <FontAwesomeIcon icon={faShoppingCart} />
-        {context.cart.length > 0 && (
-          <span>{context.cart.length}</span>
-        )}
+          {context.cart.length > 0 && (
+            <span className="ml-1">{context.cart.length}</span>
+          )}
       </Link>
     </div>
   );
