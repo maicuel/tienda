@@ -21,7 +21,7 @@ Made by Michael Robinson for Coderhouse.
 ​
 ### HOW TO SET IT UP
 ​
-If you just want to view the project in action, you can visit the [deployed version](**Deploy**: https://estamprinta.netlify.app/)
+If you just want to view the project in action, you can visit the [deployed version](**Deploy**: https://maicuel.github.io/categoria/pizza)
 ​
 If you want to test localy, follow these steps:
 ​
