@@ -21,7 +21,7 @@ Made by Michael Robinson for Coderhouse.
 ​
 ### HOW TO SET IT UP
 ​
-If you just want to view the project in action, you can visit the [deployed version](**Deploy**: https://maicuel.github.io/categoria/pizza)
+If you just want to view the project in action, you can visit the [deployed version](**Deploy**: https://maicuel.github.io/tienda)
 ​
 If you want to test localy, follow these steps:
 ​
@@ -31,7 +31,4 @@ If you want to test localy, follow these steps:
 - After it's finished, run the following command: **npm start**
 - The project should now be running on your browser.
 
-
-
-Contraer
 
