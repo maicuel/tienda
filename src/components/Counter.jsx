@@ -1,4 +1,7 @@
 import React from "react"
+import "../styles/Counter.scss";
+
+
 
 function Counter({count, setCount, initial, stock}) {
 
@@ -10,12 +13,12 @@ function Counter({count, setCount, initial, stock}) {
       count > initial && setCount(count - 1)
     }
     return (
-        <div className="columns py-4">   
+        <div className="columns py-4 counter-wrapper">   
           <div className="column">
             <button onClick={decreaseCount} className="button">-</button>
           </div>  
           <div className="column">
-            <p>{count}</p>  
+            <p className="number">{count}</p>  
           </div>  
           <div className="column">
             <button onClick={increaseCount} className="button">+</button>  

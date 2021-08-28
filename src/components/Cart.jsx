@@ -56,10 +56,10 @@ const Cart = () => {
 
           
 
-           <div className="columns is-mobile">
+           <div className="container">
             <div className="column is-three-fifths is-offset-one-fifth mt-6">
             <div className="columns ">
-            <div className="column">
+            <div className="column has-text-weight-bold is-size-5">
                 Total : ${total}
               </div>
               <div className="column">
@@ -71,7 +71,7 @@ const Cart = () => {
               </button>
               </div>
               <div className="column">
-              <button className="button is-success" onClick={() => clearCart()}>
+              <button className="button is-success">
                 <span>Comprar</span>
                 <span className="icon is-small">
                   <FontAwesomeIcon icon={faShoppingCart} />

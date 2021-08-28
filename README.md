@@ -1,11 +1,11 @@
-# LA PIZZERIA
+## LA PIZZERIA
 ​
-**Deploy**: https://estamprinta.netlify.app/
+
 ​
-![Demonstration](https://media3.giphy.com/media/UCBK6PBzGJ7wZqIAwQ/giphy.gif)
+![Demonstration](https://firebasestorage.googleapis.com/v0/b/react-animales-michael.appspot.com/o/pizzeria%2FPizzeria.jpg?alt=media&token=07939edb-a339-432f-ad36-ad626c70ea56)
 ​
 ​
-*LA PIZZERIA* is a fictionary e-commerce site. 
+**LA PIZZERIA** is a fictionary e-commerce site. 
 ​
 Made by Michael Robinson for Coderhouse.
 ​
@@ -21,7 +21,7 @@ Made by Michael Robinson for Coderhouse.
 ​
 ### HOW TO SET IT UP
 ​
-If you just want to view the project in action, you can visit the [deployed version](https://estamprinta.netlify.app/)
+If you just want to view the project in action, you can visit the [deployed version](**Deploy**: https://estamprinta.netlify.app/)
 ​
 If you want to test localy, follow these steps:
 ​

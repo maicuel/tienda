@@ -38,8 +38,8 @@ const ItemDetail = ({  item, count, setCount }) => {
 
           <div className="column">
             <p className="is-size-2 is-uppercasehas-text-weight-bold mn-3">{item.nombre}</p>
-            <p className="">${item.valor}</p>
-            <p>Stock: {item.stock}</p>
+            <p className="is-size-3 has-text-weight-bold">${item.valor}</p>
+            <p className="is-size-7">Stock: {item.stock}</p>
             <p className="my-6">{item.descripcion}</p>
 
             <Counter

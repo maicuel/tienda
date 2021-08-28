@@ -1,0 +1,12 @@
+.counter-wrapper {
+    width: 250px;
+    text-align: center;
+
+    & button {
+        text-align: center;
+    }
+
+    & .number {
+       margin: 0 auto;
+    }
+}
