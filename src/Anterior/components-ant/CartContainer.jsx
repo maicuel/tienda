@@ -8,9 +8,7 @@ const CartContainer = () => {
 
   return (
     <div className="container">
-      <div class="box">
-        <Cart context={context} />
-      </div>
+      <Cart context={context} />
     </div>
   );
 };

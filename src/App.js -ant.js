@@ -1,22 +1,26 @@
 import React from "react"
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom"
+// import "./App.css"
 import 'bulma/css/bulma.min.css'
 import Nav from "./components/Nav"
-import ItemListContainer from "./components/ItemListContainer"
+import ItemListContainer from "./components/ItemListContainer/ItemListContainer"
 import ItemDetailContainer from "./components/ItemDetailContainer"
 import DataProvider from "./context/CartContext"
-import Home from './components/Home'
 import Cart from "./components/Cart"
-import Footer from "./components/Footer"
+import Footer from "./components/Footer/Footer"
+import Hero from "./components/Hero"
 
 function App() {
   return (
+    
     <DataProvider>
       <Router>
+        <Hero />
+      
         <Nav />
         <Switch>
           <Route exact path="/">
-            <Home title="Lo mejor en pizzas." subtitle="¡Somos una pizzería al paso donde podrás encontrar las mejores pizzas artesanales de Santiago!"/>
+            <ItemListContainer />
           </Route>
           <Route path="/categoria/:catId">
             <ItemListContainer />
@@ -29,7 +33,7 @@ function App() {
           </Route>
         </Switch>
       </Router>
-      <Footer copy="Desarrollado por Michael Robinson"/>
+      <Footer />
 
     </DataProvider>
   )

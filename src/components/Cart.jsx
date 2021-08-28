@@ -1,13 +1,13 @@
 import React, { useContext, useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import { CartContext } from "../context/CartContext";
-import CartItem from "./CartItem/CartItem";
-import { faTimes } from "@fortawesome/free-solid-svg-icons";
+import CartItem from "./CartItem";
+import { faTimes , faArrowLeft, faShoppingCart } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-// import Form from "./Form";
+
 
 const Cart = () => {
-  const { cart, deleteItem, clearCart } = useContext(CartContext);
+  const { cart, clearCart } = useContext(CartContext);
 
   const [total, setTotal] = useState(0);
 
@@ -23,52 +23,67 @@ const Cart = () => {
   );
 
   return (
-    <div>
+    <section className="section">
       {!cart.length
-        ? <div>
-            <h3>Carrito sin Items</h3>
-            <Link to="/">
-              <button>Volver</button>
+        ? <div className="container">
+
+
+            <div className="my-6">
+              <p className="title is-2">Carrito vacío</p>
+            </div>
+
+
+            <Link to="/" className="button is-success">
+                <span className="icon is-small">
+                  <FontAwesomeIcon icon={faArrowLeft} />
+                </span>
+                <span>volver</span>
             </Link>
+
           </div>
         : <div className="container mt-6">
-            <h3>Lista de compras:</h3>
+
+          <div className="my-6">
+            <p className="title is-2">Mi pedido:</p>
+          </div>
+           
 
             <div className="container">
-
               {cart.map(item =>
                 <CartItem item={item} key={item.id}  />
               )}
-
             </div>
 
+          
 
-            <div class="columns is-mobile">
-              <div class="column is-4 is-offset-8"></div>
-            </div>
-
-
-           <div className="columns mt-6">
+           <div className="columns is-mobile">
+            <div className="column is-three-fifths is-offset-one-fifth mt-6">
+            <div className="columns ">
             <div className="column">
                 Total : ${total}
               </div>
               <div className="column">
-              <button class="button is-danger is-outlined" onClick={() => clearCart()}>
+              <button className="button is-danger is-outlined" onClick={() => clearCart()}>
                 <span>Vaciar Carro</span>
-                <span class="icon is-small">
+                <span className="icon is-small">
                   <FontAwesomeIcon icon={faTimes} />
+                </span>
+              </button>
+              </div>
+              <div className="column">
+              <button className="button is-success" onClick={() => clearCart()}>
+                <span>Comprar</span>
+                <span className="icon is-small">
+                  <FontAwesomeIcon icon={faShoppingCart} />
                 </span>
               </button>
               </div>
            </div>
 
-
-
-
-            {/* <button onClick={() => clearCart()}>Vaciar Carrito</button> */}
-            {/* <Form cart={cart} total={total} clearCart={clearCart} /> */}
+            </div>
+          </div>
           </div>}
-    </div>
+    </section>
   );
 };
 

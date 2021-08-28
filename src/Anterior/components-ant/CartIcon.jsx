@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 import { CartContext } from '../context/CartContext';
 import { faShoppingCart } from "@fortawesome/free-solid-svg-icons"
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
-import '../styles/CartIcon.scss'
+
 
 const CartIcon = () => {
   const context = useContext(CartContext);
